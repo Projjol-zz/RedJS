@@ -1,12 +1,14 @@
 'use strict';
 
-app.controller('PostCtrl', function($scope) {
-	$scope.posts = [];
+app.controller('PostCtrl', function($scope, Post) {
+
 	$scope.post = {url: 'http://', title: ''};
 	
 	$scope.submitPost = function(){
-		$scope.posts.push($scope.post);
-		$scope.post = {url: 'http://', title: ''};
+		Post.save($scope.post, function(ref){
+			$scope.posts[ref.name] = $scope.post;
+			$scope.post = {url: 'http://', title: ''};
+		});
 	};
 	$scope.deletePost = function(index){
 		$scope.posts.splice(index,1);
