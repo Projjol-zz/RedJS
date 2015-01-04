@@ -27,6 +27,10 @@ var app = angular
         templateUrl: 'views/posts.html',
         controller: 'PostCtrl'
       })
+      .when('/posts/:postId',{
+        templateUrl: 'views/showposts.html',
+        controller: 'PostViewCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
