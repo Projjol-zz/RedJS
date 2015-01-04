@@ -17,8 +17,10 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'firebase'
   ])
+  .constant('FIREBASE_URL', 'https://blazing-fire-6602.firebaseio.com/')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
